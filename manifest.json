@@ -1,0 +1,36 @@
+{
+  "manifest_version":3,
+  "name": "기본 크롬확장 프로그램",
+  "version":"0.0.2",
+  "description": "기본 크롬확장 프로그램",
+  "author": "Cranberry",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "_matches": ["http://*/*", "https://*/*"],
+      "_matches": ["https://*.google.com/*"],
+      "js": ["content-script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup":"html/index.html"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting",
+    "bookmarks",
+    "contextMenus"
+  ],
+  "host_permissions": [ "<all_urls>" ],
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
